@@ -72,6 +72,7 @@ export default function Home() {
       {isDeleteEvent && (
         <>
           <DeleteEvent
+            setEvents={setEvents}
             events={events}
             eventName={eventName}
             setIsDeleteEvent={setIsDeleteEvent}

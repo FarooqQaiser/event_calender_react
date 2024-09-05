@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 
-export default function DeleteEvent({ events, eventName, setIsDeleteEvent }) {
-  const [index, setIndex] = useState("");
-
+export default function DeleteEvent({
+  setEvents,
+  events,
+  eventName,
+  setIsDeleteEvent,
+}) {
   const handleNoOnClick = () => {
     setIsDeleteEvent(false);
   };
 
   const handleYesOnClick = () => {
-    events.map((event, i) => {
-      if (events.find((item) => item.event === eventName)) {
-        setIndex(i);
-      }
-      return null;
-    });
-    events.splice(index, index);
+    const newEventsArray = events.filter((item) => item.event !== eventName);
+    setEvents(newEventsArray);
     setIsDeleteEvent(false);
   };
 
